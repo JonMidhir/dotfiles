@@ -1,0 +1,10 @@
+Install (at least) these packages with `apt`:
+
+xmonad, xmobar, feh, compton, xmonad-contrib, ghc, cabal-install, rofi
+
+libasound2-dev, happy, alex (for xmonad-extras)
+
+Install these with cabal:
+
+c2hs
+xmonad-extras
