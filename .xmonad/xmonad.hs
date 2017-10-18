@@ -198,12 +198,12 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = myGaps (Tall 1 (3/100) (1/2))
+myLayout =  myGaps (Tall 1 (3/100) (1/2))
        ||| noBorders (fullscreenFull Full)
   where myGaps = lessBorders OnlyFloat
                . avoidStruts
                . spacing 8
-               . gaps [(U,16), (D,8), (R,8), (L,8)]
+               . gaps [(U,8), (D,8), (R,8), (L,8)]
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -235,7 +235,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = docksEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -254,7 +254,7 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = spawn "compton --backend glx --vsync opengl -fcCz -l -17 -t -17"
-                >> spawn "feh --bg-scale /home/john/Pictures/capetown.jpg"
+                >> spawn "feh --bg-fill /home/john/Pictures/wallpaper.jpg"
 
 ------------------------------------------------------------------------
 -- Xmobar 
@@ -287,7 +287,6 @@ defaults p = def {
         clickJustFocuses   = myClickJustFocuses,
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
-        workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
 
@@ -297,10 +296,12 @@ defaults p = def {
 
       -- hooks, layouts
         layoutHook         = myLayout,
-        manageHook         = myManageHook,
+        manageHook         = manageDocks <+> myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
-        startupHook        = myStartupHook
+        startupHook        = myStartupHook,
+
+        workspaces         = myWorkspaces
     }
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
