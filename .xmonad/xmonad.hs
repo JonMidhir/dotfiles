@@ -235,6 +235,9 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
+-- docksEventHook refreshes the docks on each event. This is necessary to
+-- avoid the problem where the first workspace had a smaller gap between 
+-- xmobar and the windows than other workspaces.
 myEventHook = docksEventHook
 
 ------------------------------------------------------------------------
