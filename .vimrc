@@ -3,14 +3,14 @@
 " --------------------------------------
 
 set autochdir
-set encoding=utf8 " UTF-8 by default
-set expandtab     " No tabs
+set encoding=utf8       " UTF-8 by default
+set expandtab           " No tabs
 set formatoptions=tcqn1 " t - autowrap normal text
                         " c - autowrap comments
-			" q - gq formats comments
-			" n - autowrap lists
-			" 1 - break before single-letter words
-			" 2 - use indenting from 2nd linie of para
+                        " q - gq formats comments
+                        " n - autowrap lists
+                        " 1 - break before single-letter words
+                        " 2 - use indenting from 2nd linie of para
 set linebreak           " Break long lines by word, not char
 set number
 set ruler               " Show row/col and percentage
