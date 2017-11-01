@@ -256,14 +256,14 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = spawn "compton --backend glx --vsync opengl -fcCz -l -17 -t -17"
+myStartupHook = spawn "compton --backend glx --vsync opengl --shadow-exclude 'class_g ?= \"Notify-osd\"' -fcCz -l -17 -t -17"
                 >> spawn "feh --bg-fill /home/john/Pictures/wallpaper.jpg"
 
 ------------------------------------------------------------------------
 -- Xmobar 
 -- myBar = "xmobar"
 --
-myStatusBar = "xmobar -x0 /home/john/.xmonad/xmobar.conf"
+myStatusBar = "xmobar -x0 /home/john/.xmonad/xmobar.hs"
 myLauncher  = "rofi -matching fuzzy -modi combi -show combi -combi-modi run,drun"
 myBrowser   = "firefox"
 
