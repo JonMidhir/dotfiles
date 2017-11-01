@@ -29,6 +29,12 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+
+" --------------------------------------
+" Custom key mappings
+" --------------------------------------
+map <C-n> :NERDTreeToggle<CR>
+
 " --------------------------------------
 " vim-plug
 " --------------------------------------
@@ -38,6 +44,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes'
 Plug 'rakr/vim-one'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
