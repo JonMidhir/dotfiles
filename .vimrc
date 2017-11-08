@@ -3,6 +3,7 @@
 " --------------------------------------
 
 set autochdir
+set colorcolumn=80      " Only supported by vim 7.3+
 set encoding=utf8       " UTF-8 by default
 set expandtab           " No tabs
 set formatoptions=tcqn1 " t - autowrap normal text
@@ -22,16 +23,12 @@ set t_Co=256            " Set color depth to 256
 set tabstop=2           " The one true tab™
 set textwidth=100       " 80 char preference
 
-
 if &term =~ '256color'
   " Disable Background Color Erase (BCE) so that color schemes
   " work properly when Vim is used inside tmux and GNU screen.
   set t_ut=
 endif
 
-
-" --------------------------------------
-" Custom key mappings
 " --------------------------------------
 map <C-n> :NERDTreeToggle<CR>
 
@@ -45,6 +42,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'rakr/vim-one'
 Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -54,3 +52,6 @@ call plug#end()
 set background=light
 
 colo one
+
+" Override the theme and set the 80 char line color
+hi ColorColumn ctermbg=LightRed
