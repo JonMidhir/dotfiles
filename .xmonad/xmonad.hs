@@ -84,6 +84,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,xF86XK_AudioMute           ), toggleMute >> return ())
     , ((0,xF86XK_AudioLowerVolume    ), lowerVolume 4 >> setMute True >> return ())
     , ((0,xF86XK_AudioRaiseVolume    ), raiseVolume 4 >> setMute True >> return ())
+    
+    -- Bind AudioStart /AudioStop etc to do something like this:
+    --   dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play
+    -- Can it be made to use the current player instead of hardcoded to spotify?
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -256,7 +260,7 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = spawn "compton --backend glx --vsync opengl --shadow-exclude 'class_g ?= \"Notify-osd\"' -fcCz -l -17 -t -17"
+myStartupHook = spawn "compton --config /home/john/.xmonad/compton.conf"
                 >> spawn "feh --bg-fill /home/john/Pictures/wallpaper.jpg"
 
 ------------------------------------------------------------------------
@@ -265,7 +269,7 @@ myStartupHook = spawn "compton --backend glx --vsync opengl --shadow-exclude 'cl
 --
 myStatusBar = "xmobar -x0 /home/john/.xmonad/xmobar.hs"
 myLauncher  = "rofi -matching fuzzy -modi combi -show combi -combi-modi run,drun"
-myBrowser   = "firefox"
+myBrowser   = "google-chrome"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
