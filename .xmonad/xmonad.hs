@@ -80,6 +80,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
+    -- launch screenshot
+    , ((modm,       xK_s     ), spawn myScreenshotUtil)
+
     -- volume control
     , ((0,xF86XK_AudioMute           ), toggleMute >> return ())
     , ((0,xF86XK_AudioLowerVolume    ), lowerVolume 4 >> setMute True >> return ())
@@ -270,6 +273,7 @@ myStartupHook = spawn "compton --config /home/john/.xmonad/compton.conf"
 myStatusBar = "xmobar -x0 /home/john/.xmonad/xmobar.hs"
 myLauncher  = "rofi -matching fuzzy -modi combi -show combi -combi-modi run,drun"
 myBrowser   = "google-chrome"
+myScreenshotUtil = "shutter -s"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

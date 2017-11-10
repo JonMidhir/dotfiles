@@ -53,5 +53,8 @@ set background=light
 
 colo one
 
+" Let NERDTree show hidden files
+let NERDTreeShowHidden=1
+
 " Override the theme and set the 80 char line color
 hi ColorColumn ctermbg=LightRed
