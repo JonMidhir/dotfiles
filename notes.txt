@@ -1,6 +1,7 @@
 Install (at least) these packages with `apt`:
 
-xmonad, xmobar, feh, compton, xmonad-contrib, ghc, cabal-install, rofi, fonts-font-awesome
+xmonad, xmobar, feh, compton, xmonad-contrib, ghc, cabal-install, rofi, fonts-font-awesome,
+xscreensaver
 
 libasound2-dev, happy, alex (for xmonad-extras)
 

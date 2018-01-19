@@ -83,6 +83,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch screenshot
     , ((modm,       xK_s     ), spawn myScreenshotUtil)
 
+    , ((modm .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
+
     -- volume control
     , ((0,xF86XK_AudioMute           ), toggleMute >> return ())
     , ((0,xF86XK_AudioLowerVolume    ), lowerVolume 4 >> setMute True >> return ())
@@ -209,8 +211,8 @@ myLayout =  myGaps (Tall 1 (3/100) (1/2))
        ||| noBorders (fullscreenFull Full)
   where myGaps = lessBorders OnlyFloat
                . avoidStruts
-               . spacing 8
-               . gaps [(U,8), (D,8), (R,8), (L,8)]
+               . spacing 4
+               . gaps [(U,4), (D,4), (R,4), (L,4)]
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -265,6 +267,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = spawn "compton --config /home/john/.xmonad/compton.conf"
                 >> spawn "feh --bg-fill /home/john/Pictures/wallpaper.jpg"
+                >> spawn "xsetroot -cursor_name left_ptr"
 
 ------------------------------------------------------------------------
 -- Xmobar 
