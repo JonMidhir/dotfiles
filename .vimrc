@@ -43,6 +43,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'rakr/vim-one'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -58,3 +59,6 @@ let NERDTreeShowHidden=1
 
 " Override the theme and set the 80 char line color
 hi ColorColumn ctermbg=LightRed
+
+" Use Ag for search instead of Ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
