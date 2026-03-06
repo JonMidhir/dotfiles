@@ -1,0 +1,53 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 4,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "custom/btop",
+    "pulseaudio",
+    "network",
+    "battery",
+    "tray",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate"
+  },
+  "clock": {
+    "format": " {:%a %b %d  %I:%M %p}",
+    "tooltip-format": "<big>{:%Y :%B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": { "default": ["󰕿","󰖀","󰕾"] },
+    "on-click": "wiremix"
+  },
+  "network": {
+    "format-wifi": "󰤨 {essid}",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": "󰤭",
+    "on-click": "ghostty -e impala"
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+  },
+  "tray": { "spacing": 8 },
+  "custom/btop": {
+    "format": "󰻠",
+    "tooltip": "System Monitor",
+    "on-click": "ghostty -e btop"
+  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": "Power Menu",
+    "on-click": "~/.config/hypr/scripts/power-menu.sh"
+  }
+}

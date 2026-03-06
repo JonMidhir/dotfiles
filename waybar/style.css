@@ -1,0 +1,55 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.modules-left, .modules-center, .modules-right {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    padding: 2px 8px;
+    margin: 8px 6px 0 6px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    border-radius: 8px;
+    margin: 2px 2px;
+    transition: all 0.2s;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+#workspaces button.active {
+    color: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#workspaces button:hover {
+    color: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#clock {
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0 12px;
+}
+
+#pulseaudio, #network, #battery,
+#custom-btop, #custom-power, #tray {
+    padding: 0 10px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+#battery.warning { color: #f0b060; }
+#battery.critical { color: #f07080; }
